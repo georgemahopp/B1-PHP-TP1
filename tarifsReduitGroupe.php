@@ -1,14 +1,14 @@
 <?php
-     define( "PRIX_PAR_ADULTES" , 17 ) ;
-     define(  "prix_reduit" , 15 ) ;
+     define( "PRIX_PAR_GROUPE" , 18 ) ;
+     define( "PRIX_REDUIT_GROUPE" , 15 )  ;
      echo " saisir le nombre d'adultes : \n" ;
-     $nbAdultes = fgets ( STDIN ) ;
-     if ($nbAdultes > 7) {
-		 $calculePrix = ceil(7);
-		 
-		 
-		 
-		 
-	else {
-		 echo "Le montant de la traversée est de " , $calculePrix , " € pour tous les adultes. \n" ;
+     $nombreAdultes = fgets ( STDIN ) ;
+     
+     $nbAdultesReduit = min($nombreAdultes, 7); 
+     
+     $nbAdultesNormal = $nombreAdultes - $nbAdultesReduit;
+     
+     $montantApplique = ($nbAdultesReduit * PRIX_REDUIT_GROUPE) + ($nbAdultesNormal * PRIX_PAR_GROUPE);
+     
+     echo "Montant à régler est de : ", $montantApplique, " €\n";
 ?>
